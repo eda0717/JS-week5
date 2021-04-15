@@ -137,7 +137,6 @@ selected.addEventListener('change',function(e){
   data.forEach(function(item){
     if(e.target.value=='全部地區'){
       init();
-    searchResult.innerHTML = `本次搜尋共${data.length}筆資料`;
     }
     else if(e.target.value==item.area){
        let searchDatas = data.filter(item=>item.area==e.target.value);
@@ -173,6 +172,12 @@ selected.addEventListener('change',function(e){
      </li>`
     searchResult.innerHTML = `本次搜尋共${searchDatas.length}筆資料`
     ticketCardList.innerHTML = str;
+    }
+    else{
+      let searchDatas = data.filter(item=>item.area==e.target.value);
+       init(searchDatas);
+      searchResult.innerHTML = `本次搜尋共${searchDatas.length}筆資料`
+      ticketCardList.innerHTML = str;
     }
   })
 })
